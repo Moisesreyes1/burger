@@ -13,15 +13,15 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 // Set handlebars
-app.use(methodOverride("_method"))
+
 var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
-app.set("view engine', 'handlebars");
+app.set("view engine", "handlebars");
 
 var routes = require("./controllers/burgers_controller.js");
-
+app.use(methodOverride("_method"))
 app.use("/", routes);
 app.use("/create", routes);
 app.use("/update", routes);
@@ -31,4 +31,4 @@ app.use("/id", routes);
 app.listen(PORT);
 
 console.log("App listening on PORT: " + PORT);
-console.log(module.exports)
+// console.log(module.exports)
