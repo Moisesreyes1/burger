@@ -1,0 +1,54 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-lg-12 text-center" id = "mainBurger">
+      <img src = "https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170504203/77708023-Cartoon-image-of-tasty-burger-Stock-Vector.jpg"/>
+
+      <h1>Eat-da-burger!</h1>
+    </div>
+    <div class = "col-md-6 text-center" class = "myBurgers">
+      <div class = "row">
+        <ul>
+          {{#each burger_data}}
+            {{#unless burger.devoured}}
+            {{/unless}}
+          {{/each}}
+        </ul>
+    </div>
+      <div class="col-xs-3 text-center">
+          <form method="POST" action="/api/burgers/update?_method=PUT" class="button-size">
+            <input input type="hidden" type="text" name="burger_id" value={{burger.id}}><br>
+            <button type="submit" class="btn btn-default">Devour it!</button>
+          </form>
+      </div>
+      <div class = "col-md-6 text-center" class = "myBurger">
+        {{#each burger_data}}
+        {{#if burger.devoured}}
+          <input class = "form-control"
+          type = "text"
+          placeholder = "{{burgher.id}}"
+          {{burger_name}}>
+        {{/if}}
+        {{/each}}
+      </div>
+  </div>
+</div>
+
+<div class ="container">
+  <div class = "row">
+    <div class = "col-md-6 text-center">
+      <form action = "/api/burgers/create"
+      method = "POST">
+      <input type = "text"
+      class = "form-control"
+      name = "burger_name" value = ""
+      id = "enter_text">
+      <button type = "submit" class = "btn btn-primary" id = "submit">Submit</button>
+      </form>
+      <p>Enter your dream burger and click submit</p>
+    </div>
+  </div>
+</div>
+
+
+
+
